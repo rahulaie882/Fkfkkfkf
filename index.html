@@ -3,107 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!</title>
+    <title>Online Shopping Site</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
         body { background-color: #f1f3f6; }
         
-        /* Flipkart Header */
-        header { background-color: #2874f0; display: flex; align-items: center; justify-content: space-between; padding: 10px 80px; position: sticky; top: 0; z-index: 1000; }
+        /* Header */
+        header { background-color: #2874f0; display: flex; align-items: center; justify-content: space-between; padding: 10px 15px; flex-wrap: wrap; gap: 10px; position: sticky; top: 0; z-index: 1000; }
         .logo-box { display: flex; flex-direction: column; line-height: 1; }
-        .logo { color: #ffe11b; font-size: 22px; font-weight: bold; font-style: italic; text-decoration: none; }
-        .explore { color: #f0f0f0; font-size: 11px; font-style: italic; }
+        .logo { color: #ffe11b; font-size: 20px; font-weight: bold; font-style: italic; text-decoration: none; }
+        .explore { color: #f0f0f0; font-size: 10px; font-style: italic; }
         .explore span { color: #ffe11b; font-weight: bold; }
         
-        .search-box { background: #fff; display: flex; width: 450px; border-radius: 2px; padding: 0 10px; box-shadow: 0 2px 4px rgba(0,0,0,.2); }
-        .search-box input { width: 100%; border: none; padding: 10px; outline: none; font-size: 14px; }
+        .search-box { background: #fff; display: flex; flex: 1; min-width: 180px; max-width: 400px; border-radius: 2px; padding: 0 10px; }
+        .search-box input { width: 100%; border: none; padding: 8px; outline: none; font-size: 13px; }
         
-        .nav-btns { display: flex; align-items: center; gap: 35px; }
-        .login-btn { background: #fff; color: #2874f0; border: none; padding: 6px 35px; font-weight: bold; font-size: 16px; border-radius: 2px; cursor: pointer; }
-        .login-btn:hover { background: #f0f0f0; }
-        .nav-link { color: #fff; text-decoration: none; font-size: 16px; font-weight: 500; }
+        .nav-btns { display: flex; align-items: center; gap: 15px; }
+        .login-btn { background: #fff; color: #2874f0; border: none; padding: 5px 15px; font-weight: bold; font-size: 14px; border-radius: 2px; cursor: pointer; }
+        .nav-link { color: #fff; text-decoration: none; font-size: 14px; font-weight: 500; }
 
-        /* Categories Bar */
-        .categories-bar { background: #fff; display: flex; justify-content: space-around; padding: 12px 40px; box-shadow: 0 1px 1px 0 rgba(0,0,0,.16); margin-bottom: 10px; }
-        .category-item { text-align: center; font-size: 14px; font-weight: 500; color: #212121; cursor: pointer; }
+        /* Categories Bar - Scrollable on mobile */
+        .categories-bar { background: #fff; display: flex; overflow-x: auto; gap: 20px; padding: 10px 15px; white-space: nowrap; box-shadow: 0 1px 1px rgba(0,0,0,.16); margin-bottom: 10px; }
+        .categories-bar::-webkit-scrollbar { display: none; }
+        .category-item { font-size: 13px; font-weight: 500; color: #212121; cursor: pointer; flex-shrink: 0; }
         .category-item:hover { color: #2874f0; }
 
-        /* Promotional Banner */
-        .banner { width: 96%; margin: 10px auto; height: 220px; border-radius: 4px; background: linear-gradient(135deg, #2874f0, #ff9f00); color: white; display: flex; align-items: center; justify-content: center; font-size: 30px; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-
-        /* Product Section */
-        .product-section { background: #fff; margin: 10px auto; width: 96%; padding: 20px; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        .section-title { font-size: 20px; font-weight: 600; margin-bottom: 15px; color: #212121; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 15px; }
-        .product-card { border: 1px solid #e0e0e0; padding: 15px; text-align: center; border-radius: 4px; transition: 0.3s; background: #fff; }
-        .product-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
-        .product-img { height: 160px; background: #f9f9f9; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; color: #555; font-size: 14px; font-weight: bold; }
-        .product-name { font-size: 14px; font-weight: 500; color: #212121; margin-bottom: 8px; }
-        .product-price { font-size: 16px; font-weight: bold; color: #388e3c; }
+        /* Banner & Products */
+        .banner { width: 96%; margin: 10px auto; height: 150px; border-radius: 4px; background: linear-gradient(135deg, #2874f0, #ff9f00); color: white; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: bold; text-align: center; padding: 0 10px; }
+        .product-section { background: #fff; margin: 10px auto; width: 96%; padding: 15px; border-radius: 4px; }
+        .section-title { font-size: 18px; font-weight: 600; margin-bottom: 12px; color: #212121; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+        .product-card { border: 1px solid #e0e0e0; padding: 10px; text-align: center; border-radius: 4px; background: #fff; }
+        .product-img { height: 110px; background: #f9f9f9; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; color: #555; font-size: 12px; font-weight: bold; }
+        .product-name { font-size: 13px; font-weight: 500; color: #212121; margin-bottom: 6px; }
+        .product-price { font-size: 14px; font-weight: bold; color: #388e3c; }
     </style>
 </head>
 <body>
-
-    <!-- Header Section -->
     <header>
         <div class="logo-box">
             <a href="#" class="logo">Flipkart</a>
             <div class="explore">Explore <span>Plus</span></div>
         </div>
         <div class="search-box">
-            <input type="text" placeholder="Search for products, brands and more">
+            <input type="text" placeholder="Search products...">
         </div>
         <div class="nav-btns">
             <button class="login-btn">Login</button>
-            <a href="#" class="nav-link">Become a Seller</a>
-            <a href="#" class="nav-link">More</a>
             <a href="#" class="nav-link">Cart</a>
         </div>
     </header>
 
-    <!-- Categories Strip -->
     <div class="categories-bar">
         <div class="category-item">Grocery</div>
         <div class="category-item">Mobiles</div>
         <div class="category-item">Fashion</div>
         <div class="category-item">Electronics</div>
-        <div class="category-item">Home & Furniture</div>
+        <div class="category-item">Home</div>
         <div class="category-item">Appliances</div>
-        <div class="category-item">Travel</div>
-        <div class="category-item">Beauty, Toys & More</div>
     </div>
 
-    <!-- Banner -->
     <div class="banner">
-        🔥 Big Billion Days / Mega Sale Banner 🔥
+        🔥 Big Billion Days Sale 🔥
     </div>
 
-    <!-- Products Grid -->
     <div class="product-section">
         <div class="section-title">Best of Electronics</div>
         <div class="product-grid">
             <div class="product-card">
-                <div class="product-img">Wireless Earbuds</div>
-                <div class="product-name">boAt Airdopes 141</div>
+                <div class="product-img">Earbuds</div>
+                <div class="product-name">boAt Airdopes</div>
                 <div class="product-price">₹1,199</div>
-            </div>
-            <div class="product-card">
-                <div class="product-img">Smartwatch</div>
-                <div class="product-name">Noise ColorFit Pulse</div>
-                <div class="product-price">₹1,499</div>
-            </div>
-            <div class="product-card">
-                <div class="product-img">Power Bank</div>
-                <div class="product-name">Mi 10000mAh Power Bank</div>
-                <div class="product-price">₹1,799</div>
-            </div>
-            <div class="product-card">
-                <div class="product-img">DSLR Camera</div>
-                <div class="product-name">Canon EOS 1500D</div>
-                <div class="product-price">₹42,990</div>
             </div>
         </div>
     </div>
-
 </body>
 </html>
