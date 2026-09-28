@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#2874f0">
+  <title>ShopKart — Marketplace</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+  <div class="header-inner">
+    <button class="hamburger" id="menuBtn">☰</button>
+    <a class="logo" href="#" onclick="resetHome()">
+      <strong>Shop<span>Kart</span></strong>
+      <small>Explore <b>Plus</b></small>
+    </a>
+
+    <div class="search-box">
+      <input id="searchInput" type="search" placeholder="Search for products, brands and more">
+      <button id="searchBtn">🔍</button>
+      <div class="suggestions" id="suggestions"></div>
+    </div>
+
+    <button class="login-btn" id="loginBtn">Login</button>
+    <button class="more-btn" id="moreBtn">More ▾</button>
+    <button class="cart-btn" id="cartBtn">🛒 Cart <b id="cartCount">0</b></button>
+  </div>
+</header>
+
+<nav class="category-bar" id="categoryBar">
+  <button data-cat="All">All</button>
+  <button data-cat="Grocery">🛒 Grocery</button>
+  <button data-cat="Mobiles">📱 Mobiles</button>
+  <button data-cat="Fashion">👕 Fashion</button>
+  <button data-cat="Electronics">💻 Electronics</button>
+  <button data-cat="Home">🏠 Home</button>
+  <button data-cat="Appliances">🔌 Appliances</button>
+  <button data-cat="Travel">✈️ Travel</button>
+  <button data-cat="Beauty">💄 Beauty</button>
+  <button data-cat="Toys">🧸 Toys</button>
+  <button data-cat="Two Wheelers">🏍️ Two Wheelers</button>
+</nav>
+
+<main>
+  <section class="hero" id="hero">
+    <div class="hero-track" id="heroTrack"></div>
+    <button class="hero-arrow left" id="prevSlide">‹</button>
+    <button class="hero-arrow right" id="nextSlide">›</button>
+    <div class="dots" id="dots"></div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>Deals of the Day</h2>
+      <button class="view-all" onclick="setCategory('All')">VIEW ALL</button>
+    </div>
+    <div class="product-row" id="dealRow"></div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>Top Picks For You</h2>
+    </div>
+    <div class="product-grid" id="productGrid"></div>
+    <div class="empty" id="emptyState">No products found. Try another search.</div>
+  </section>
+
+  <section class="section features">
+    <div><span>🚚</span><strong>Fast Delivery</strong><small>Quick doorstep delivery</small></div>
+    <div><span>🔒</span><strong>Secure Payments</strong><small>Safe and trusted checkout</small></div>
+    <div><span>↩️</span><strong>Easy Returns</strong><small>Simple return experience</small></div>
+    <div><span>⭐</span><strong>Quality Products</strong><small>Curated marketplace</small></div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div><h4>ABOUT</h4><a>Contact Us</a><a>About Us</a><a>Careers</a><a>Press</a></div>
+    <div><h4>HELP</h4><a>Payments</a><a>Shipping</a><a>Cancellation & Returns</a><a>FAQ</a></div>
+    <div><h4>POLICY</h4><a>Terms of Use</a><a>Security</a><a>Privacy</a><a>Sitemap</a></div>
+    <div><h4>SOCIAL</h4><a>Facebook</a><a>Instagram</a><a>YouTube</a><a>X</a></div>
+  </div>
+  <div class="footer-bottom">© 2026 ShopKart. Demo marketplace interface.</div>
+</footer>
+
+<div class="overlay" id="overlay"></div>
+
+<aside class="drawer" id="cartDrawer">
+  <div class="drawer-head"><h2>Your Cart</h2><button onclick="closeCart()">×</button></div>
+  <div id="cartItems"></div>
+  <div class="cart-total"><span>Total</span><strong id="cartTotal">₹0</strong></div>
+  <button class="checkout" onclick="checkout()">Place Order</button>
+</aside>
+
+<div class="modal" id="loginModal">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeLogin()">×</button>
+    <h2>Login</h2>
+    <p>Get access to your orders, wishlist and more.</p>
+    <input id="phoneInput" placeholder="Enter mobile number" maxlength="10">
+    <button class="primary" onclick="login()">Continue</button>
+    <small>By continuing, you agree to the Terms and Privacy Policy.</small>
+  </div>
+</div>
+
+<div class="modal" id="productModal">
+  <div class="modal-card product-detail">
+    <button class="modal-close" onclick="closeProduct()">×</button>
+    <div id="productDetail"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
